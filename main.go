@@ -16,7 +16,7 @@ var etcdReg registry.Registry
 func  init()  {
 	//新建一个consul注册的地址，也就是我们consul服务启动的机器ip+端口
 	etcdReg = etcd.NewRegistry(
-		registry.Addrs("192.168.2.254:12379", "192.168.2.254", "192.168.2.254"),
+		registry.Addrs("192.168.2.254:12379", "192.168.2.254:22379", "192.168.2.254:32379"),
 	)
 }
 
