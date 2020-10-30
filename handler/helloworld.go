@@ -2,6 +2,7 @@ package handler
 
 import (
 	"context"
+	"fmt"
 
 	log "github.com/micro/go-micro/v2/logger"
 
@@ -14,6 +15,7 @@ type Helloworld struct{}
 func (e *Helloworld) Call(ctx context.Context, req *helloworld.Request, rsp *helloworld.Response) error {
 	log.Info("Received Helloworld.Call request")
 	rsp.Msg = "Hello " + req.Name
+	fmt.Println("新接口")
 	return nil
 }
 
