@@ -28,7 +28,7 @@ func main() {
 		micro.Name("go.micro.service.helloworld"),
 		micro.Version("latest"),
 		micro.Registry(etcdReg),
-		micro.WrapHandler(limiter.NewHandlerWrapper(100)),//设置qps
+		micro.WrapHandler(limiter.NewHandlerWrapper(1)),//设置qps
 	)
 
 	// Initialise service
