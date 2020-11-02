@@ -8,6 +8,8 @@ import (
 	"github.com/micro/go-micro/v2/registry"
 	"github.com/micro/go-micro/v2/registry/etcd"
 
+	limiter "github.com/micro/go-plugins/wrapper/ratelimiter/uber/v2"
+
 	helloworld "github.com/3Rivers/helloworld/proto/helloworld"
 )
 
@@ -26,6 +28,7 @@ func main() {
 		micro.Name("go.micro.service.helloworld"),
 		micro.Version("latest"),
 		micro.Registry(etcdReg),
+		micro.WrapHandler(limiter.NewHandlerWrapper(100)),//设置qps
 	)
 
 	// Initialise service
